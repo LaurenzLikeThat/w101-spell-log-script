@@ -7,8 +7,8 @@ def main():
                 path = psutil.Process(pid).exe()
         except psutil.NoSuchProcess:
             continue
-    print(f"Log path: {path}")
     log_path = f"{path.split("\\WizardGraphicalClient.exe")[0]}\\WizardClient.log"
+    print(f"Log path: {log_path}")
     old_length = 0
     while True:
         with open(log_path, "r") as log:
@@ -26,4 +26,5 @@ def main():
             old_length = new_length
 
 if __name__ == "__main__":
+
     main()
