@@ -1,4 +1,5 @@
 import psutil
+import time
 
 def main():
     for pid in psutil.pids():
@@ -17,6 +18,7 @@ def main():
             for line in log_lines:
                 if "[STAT] CombatDetails   CombatResolver::ResolveCombatRound." in line:
                     print(line[77:])
+            time.sleep(0.1)
     finally:
         log.close()
 
